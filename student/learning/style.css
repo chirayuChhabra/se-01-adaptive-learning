@@ -93,6 +93,7 @@ html.le-document{--le-tint:color-mix(in srgb,var(--le-accent) 10%,var(--paper,#f
 .le-quiz .le-actions{gap:10px}
 .le-quiz .le-actions .le-primary{min-height:44px;padding:10px 18px;border-color:var(--le-ink);background:var(--le-ink);color:var(--le-surface)!important;box-shadow:none;font-size:14px!important}
 .le-quiz .le-actions .le-secondary{min-height:44px;padding:10px 14px;border:1px solid var(--le-line);border-radius:8px;background:transparent;color:var(--le-ink);font-size:14px!important}
+.le-quiz .le-restart{min-height:44px;margin:0 0 20px;padding:10px 16px;border:1px solid var(--le-ink);border-radius:8px;background:var(--le-surface);color:var(--le-ink);font-size:14px!important;font-weight:700;cursor:pointer}
 .le-quiz .le-feedback:not(:empty){margin-top:20px;padding:15px 17px;border:1px solid var(--le-line);border-left:3px solid var(--le-accent);border-radius:8px;background:var(--le-tint);color:var(--le-ink);font-size:14px;line-height:1.55}
 .le-quiz .le-feedback strong,.le-quiz .le-feedback[data-tone=correct] strong,.le-quiz .le-feedback[data-tone=practice] strong{color:var(--le-ink);font-weight:700}
 .le-quiz .le-feedback p{margin:5px 0 0!important;color:var(--le-ink);font-size:14px!important;line-height:1.6}

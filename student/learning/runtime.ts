@@ -197,7 +197,7 @@ export function mountLearning(doc: Document, config: ChapterConfig, page: string
       const progress = doc.createElement('div'); progress.className = 'le-quiz-progress';
       const stage = doc.createElement('div'); stage.className = 'le-stage';
       const footer = doc.createElement('div'); footer.className = 'le-quiz-footer';
-      const restart = doc.createElement('button'); restart.type = 'button'; restart.className = 'le-secondary'; restart.textContent = 'Restart quiz';
+      const restart = doc.createElement('button'); restart.type = 'button'; restart.className = 'le-secondary le-restart'; restart.textContent = 'Restart quiz';
       restart.onclick = () => {
         if (!doc.defaultView!.confirm('Restart this quiz? Its saved answers will be cleared.')) return;
         const result = engine.restartQuiz(quiz.id);
