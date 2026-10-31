@@ -24,6 +24,20 @@ export function createLearningController(config: ChapterConfig, storage: Storage
   return {
     get state() { return state; },
     get error() { return error; },
+    restartQuiz(quizId: string) {
+      if (blocked) return { saved: false, error };
+      const quiz = config.quizzes.find(q => q.id === quizId);
+      if (!quiz) return { saved: false, error: 'Quiz not found in this chapter.' };
+      const ids = new Set(quiz.questions.map(q => q.id));
+      const updated = { ...state, attempts: state.attempts.filter(a => !ids.has(a.questionId)) };
+      try {
+        storage.setItem(key, JSON.stringify(updated));
+        state = updated; error = '';
+        return { saved: true, error };
+      } catch {
+        return { saved: false, error: 'Could not restart the quiz. Please check device storage and try again.' };
+      }
+    },
     /** Save first: no visible state or recommendation may advance on a failed write. */
     submit(questionId: string, response: Response, hinted: boolean) {
       if (blocked) return { saved: false, error };

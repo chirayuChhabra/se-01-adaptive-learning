@@ -4,12 +4,13 @@ The source is [Journey-Inside-the-Atom.md](Journey-Inside-the-Atom.md): the chap
 
 ```sh
 npm ci                      # Node 24+
-npm run build:e2e
-npm run serve:e2e
-# Open http://127.0.0.1:4322
+bun run e2e
+# Open the URL printed in the terminal
 ```
 
 Students read the chapter, answer the six-question chapter check, then press **Complete chapter**. Only then does the result pop-up appear, with the chapter profile and a link to the suggested depth. They can continue to that depth's questions. Answers are saved on the same device and work offline. Alternatively, open `dist/e2e-playground/chapter.html` directly, keeping the output folder together.
+
+Select **Restart quiz** and confirm to clear that quiz's saved answers and take it again. Other quizzes remain saved.
 
 The chapter check's latest answers determine the recommendation: below 50% goes to depth 1, 50–under 70% to depth 2, 70–under 85% to depth 3, and 85% or more to depth 4. The six equally weighted questions mean possible marks are multiples of one sixth. A student can retry the chapter check to update the recommendation. Depth practice does not change the chapter-check mark. These thresholds are demonstration choices, not calibrated mastery levels.
 

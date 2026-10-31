@@ -197,7 +197,14 @@ export function mountLearning(doc: Document, config: ChapterConfig, page: string
       const progress = doc.createElement('div'); progress.className = 'le-quiz-progress';
       const stage = doc.createElement('div'); stage.className = 'le-stage';
       const footer = doc.createElement('div'); footer.className = 'le-quiz-footer';
-      mount.append(heading, progress, stage, footer);
+      const restart = doc.createElement('button'); restart.type = 'button'; restart.className = 'le-secondary'; restart.textContent = 'Restart quiz';
+      restart.onclick = () => {
+        if (!doc.defaultView!.confirm('Restart this quiz? Its saved answers will be cleared.')) return;
+        const result = engine.restartQuiz(quiz.id);
+        notice.textContent = result.error;
+        if (result.saved) { render(); doc.getElementById('learning-' + quiz.id)?.scrollIntoView?.({ block: 'start' }); }
+      };
+      mount.append(heading, restart, progress, stage, footer);
       const fields = quiz.questions.map(q => questionUI(q, () => { answered.add(q.id); updateProgress(); }));
       stage.append(...fields);
       function updateProgress() {

@@ -17,7 +17,8 @@
     "build:learning": "node teacher/build/build.ts content/reader-demo dist/learning",
     "serve:learning": "node scripts/serve-learning.ts",
     "build:e2e": "node e2e-playground/build.ts",
-    "serve:e2e": "node scripts/serve-learning.ts dist/e2e-playground"
+    "serve:e2e": "node scripts/serve-learning.ts dist/e2e-playground",
+    "e2e": "node e2e-playground/build.ts && node scripts/serve-learning.ts dist/e2e-playground"
   },
   "devDependencies": {
     "@types/jsdom": "^30.0.0",
